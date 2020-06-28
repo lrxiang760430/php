@@ -1,0 +1,18 @@
+<?php
+//检索要发送给用户的数组
+$data=file_get_contents("textfile.txt");
+//确定数据总大小，以千字节为单位
+$fsize=filesize("textfile.txt")/1024;
+//确定起始时间
+$start=time();
+//发送数据给用户
+ehco"<!--$data-->";
+//确定终止时间
+$stop=time();
+//计算发送数据所耗时间
+$duration=$stop-$start;
+//用文件大小除以传输时间（以秒计）
+$speed=round($fsize/$duration,2);
+//显示计算得出的速度（Kbit/s）
+echo "Your network speed:$speed Kb/sec.";
+?>
